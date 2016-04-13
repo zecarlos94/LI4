@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TravellingAssistant</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_title">Travelling Assistant</string>
+    <string name="login_name">Actualizar Tarefas</string>
+    <string name="title_activity_menu">Menu</string>
+</resources>
