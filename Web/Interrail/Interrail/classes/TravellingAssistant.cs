@@ -41,6 +41,26 @@ namespace Interrail.classes
             }
         }
 
+        public int verificarMail(string email)
+        {
+            con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
+            {
+                cmd = new SqlCommand("SELECT * FROM Utilizador WHERE Email = @Email", con);
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                con.Open();
+                var reader = cmd.ExecuteReader();
+                int action = 0;
+
+                while (reader.Read())
+                {
+                    action++;
+                }
+
+                return action;
+            }
+        }
+
         public int criarConta(string email, string password, string primeiroNome, string ultimoNome)
         {
             con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");

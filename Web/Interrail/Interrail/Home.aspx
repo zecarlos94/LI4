@@ -25,9 +25,9 @@
         <div id="Footer">
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:LinkButton ID="LinkButton4" runat="server" Font-Names="Calibri" Font-Overline="False" Font-Size="XX-Large" ForeColor="Black">ABOUT US</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton4" runat="server" Font-Names="Calibri" Font-Overline="False" Font-Size="XX-Large" ForeColor="Black" OnClick="LinkButton4_Click">ABOUT US</asp:LinkButton>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:LinkButton ID="LinkButton5" runat="server" Font-Names="Calibri" Font-Overline="False" Font-Size="XX-Large" ForeColor="Black">CONTACT US</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton5" runat="server" Font-Names="Calibri" Font-Overline="False" Font-Size="XX-Large" ForeColor="Black" OnClick="LinkButton5_Click1">CONTACT US</asp:LinkButton>
         </div>
     </div>
     </form>

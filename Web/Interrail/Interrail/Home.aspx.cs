@@ -33,14 +33,15 @@ namespace Interrail
             //webBrowser1.Navigate(query);
         }
 
+
+        protected void LinkButton5_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ContactUs.aspx");
+        }
+
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/AboutUs.aspx");
-        }
-
-        protected void LinkButton5_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/ContactUs.aspx");
         }
     }
 }
