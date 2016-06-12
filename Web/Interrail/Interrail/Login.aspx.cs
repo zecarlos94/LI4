@@ -23,7 +23,11 @@ namespace Interrail
                 int res = ta.verificarLogin(EmailBox.Text, PasswordBox.Text);
 
                 if(res == 0) ErrorLabel.Text = "Invalid email or password!";
-                else Response.Redirect("~/Home.aspx"); // Mais tarde irá para a página do utilizador
+                else
+                {
+                    string page = "~/UserPage.aspx?id=" + EmailBox.Text;
+                    Response.Redirect(page);
+                }
             }
             else ErrorLabel.Text = "There are fields to fill!";
         }

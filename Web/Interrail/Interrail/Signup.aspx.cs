@@ -29,7 +29,11 @@ namespace Interrail
                 TravellingAssistant ta = new TravellingAssistant();
                 int res = ta.criarConta(EmailBox.Text, PasswordBox.Text, FirstNameBox.Text, LastNameBox.Text);
 
-                if(res == 0) Response.Redirect("~/Home.aspx"); // Mais tarde irá para a página do utilizador
+                if (res == 0)
+                {
+                    string page = "~/UserPage.aspx?id=" + EmailBox.Text;
+                    Response.Redirect(page);
+                }
                 else ErrorLabel.Text = "Email already exists!";
             }
             else ErrorLabel.Text = "There are fields to fill!";

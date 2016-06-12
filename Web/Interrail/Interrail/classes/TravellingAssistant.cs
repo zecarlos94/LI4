@@ -15,6 +15,11 @@ namespace Interrail.classes
         // Set de agendas
         // Set de relatórios
 
+        public void setUtilizador(Utilizador u)
+        {
+            this.u = u;
+        }
+
         public int verificarLogin(string email, string password)
         {
             con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
