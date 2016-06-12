@@ -1,0 +1,54 @@
+﻿body {
+    background-color: #808080;
+}
+
+#MainData {
+    position: center;
+    width: 700px;
+    margin: auto;
+    background-color: #ffffff;
+}
+
+#ProjectTitle {
+    width: 100%;
+    height: 70px;
+    background-color: #0094ff;
+}
+
+#ProjectContent {
+    width: 100%;
+    height: 200px;
+}
+
+#ProjectText {
+    width: 80%;
+    height: 204px;
+    margin-left: 74px;
+    margin-top: 39px;
+    font-size: 14pt;
+}
+
+#TeamTitle {
+    width: 100%;
+    height: 70px;
+    background-color: #0094ff;
+}
+
+#TeamContent {
+    width: 100%;
+    height: 300px;
+}
+
+#TeamText {
+    width: 80%;
+    height: 325px;
+    margin-left: 74px;
+    margin-top: 39px;
+    font-size: 14pt;
+}
+
+#Error {
+    width: 100%;
+    height: 30px;
+    background-color: #0094ff;
+}

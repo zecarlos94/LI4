@@ -13,7 +13,7 @@
         <div id="Header">
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:LinkButton ID="LinkButton3" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Overline="False" Font-Size="XX-Large" ForeColor="#CC0000">Search</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton3" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Overline="False" Font-Size="XX-Large" ForeColor="#CC0000" OnClick="LinkButton3_Click1">Search</asp:LinkButton>
 &nbsp;&nbsp;
             <asp:TextBox ID="TextBox1" runat="server" Width="637px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

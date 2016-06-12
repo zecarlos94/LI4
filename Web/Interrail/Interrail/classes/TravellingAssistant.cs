@@ -41,7 +41,7 @@ namespace Interrail.classes
             }
         }
 
-        public int verificarMail(string email)
+        public int verificarEmail(string email)
         {
             con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
             {
