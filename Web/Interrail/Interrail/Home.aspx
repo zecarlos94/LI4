@@ -19,7 +19,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Overline="False" Font-Size="XX-Large" ForeColor="#CC0000" OnClick="LinkButton1_Click">SIGN UP</asp:LinkButton>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Overline="False" Font-Size="XX-Large" ForeColor="#CC0000">LOGIN</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Overline="False" Font-Size="XX-Large" ForeColor="#CC0000" OnClick="LinkButton2_Click">LOGIN</asp:LinkButton>
         </div>
         <div id="Content"></div>
         <div id="Footer">

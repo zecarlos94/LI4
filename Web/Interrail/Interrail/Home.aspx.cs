@@ -18,5 +18,10 @@ namespace Interrail
         {
             Response.Redirect("~/Signup.aspx");
         }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

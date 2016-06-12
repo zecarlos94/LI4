@@ -15,6 +15,27 @@ namespace Interrail.classes
         // Set de agendas
         // Set de relatórios
 
+        public int verificarLogin(string email, string password)
+        {
+            con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
+            {
+                cmd = new SqlCommand("SELECT * FROM Utilizador WHERE Email = @Email AND Password = @Password", con);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Password", password);
+
+                con.Open();
+                var reader = cmd.ExecuteReader();
+                int action = 0;
+
+                while (reader.Read())
+                {
+                    action++;
+                }
+
+                return action;
+            }
+        }
+
         public int criarConta(string email, string password, string primeiroNome, string ultimoNome)
         {
             con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
