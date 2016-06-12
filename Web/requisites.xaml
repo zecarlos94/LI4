@@ -1,4 +1,5 @@
-Altera imagem de fundo para a do Mockup
+%% O símbolo '-' revela as etapas feitas
+-Altera imagem de fundo para a do Mockup
 Pesquisa reenvia a query para www.google.pt
 Ouvir e converter gravações .mp3 para texto(Reconhecimento de Voz)
 Pesquisa de locais no Google Maps(integração deste na nossa App)
@@ -9,7 +10,7 @@ Barra Menus com botões de acordo com os mockups
 Página Contact us
 Página About us
 Página Login
-Página Register
+-Página Register
 Página Perfil de Utilizador(Mudar username)
 Página Perfil de Utilizador(Mudar password)
 Página de criação de Tarefas(Agenda Diária)
