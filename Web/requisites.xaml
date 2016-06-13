@@ -1,18 +1,32 @@
+Aplicação WPF Web Browser
+
 %% O símbolo '-' revela as etapas feitas
+%% O símbolo '-|-' revela as etapas feitas mas com algo pequeno a faltar
+%% O símbolo '//' é opcional
+
 -Altera imagem de fundo para a do Mockup
-Pesquisa reenvia a query para www.google.pt
-Ouvir e converter gravações .mp3 para texto(Reconhecimento de Voz)
-Pesquisa de locais no Google Maps(integração deste na nossa App)
-Adicionar escrita inteligente(Spelling check é fácil de implementar-Opcional)
-Produzir ficheiros .pdf a partir de .docx
-Elaborar relatorio .docx a partir das anotações(REVER ISTO PK O GUSTAVO DIZ QUE É NA WEB MAS NOS REQUISITOS ESTÁ TUDO NA MOBILE)
-Barra Menus com botões de acordo com os mockups
-Página Contact us
-Página About us
-Página Login
+-Pesquisa reenvia a query para www.google.pt
+-Barra Menus com botões de acordo com os mockups
+-Página About us
+-Página Login
 -Página Register
+-|-Página Contact us
+
+/*Zé*/
 Página Perfil de Utilizador(Mudar username)
 Página Perfil de Utilizador(Mudar password)
+
+/*Tiago ou André?*/
 Página de criação de Tarefas(Agenda Diária)
 Página com a Agenda Mensal
+
+/*André e Zé?*/
 Galeria de Imagens agrupadas por Agenda Diária e por tarefa realizada nessa
+Pesquisa de locais no Google Maps(integração deste na nossa App)
+
+/*André e Zé ou Tiago e André? ou Zé e Tiago?*/
+Ouvir e converter gravações .mp3 para texto(Reconhecimento de Voz)
+Elaborar relatorio .docx a partir das anotações(REVER ISTO PK O GUSTAVO DIZ QUE É NA WEB MAS NOS REQUISITOS ESTÁ TUDO NA MOBILE)
+Produzir ficheiros .pdf a partir de .docx
+
+//Adicionar escrita inteligente(Spelling check é fácil de implementar)
