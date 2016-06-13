@@ -10,12 +10,12 @@ using Interrail.classes;
 
 namespace Interrail
 {
-    public partial class UserPage : System.Web.UI.Page
+    public partial class Profile : System.Web.UI.Page
     {
-        private TravellingAssistant ta = new TravellingAssistant();
-        private Utilizador u;
         private SqlConnection con;
         private SqlCommand cmd;
+        private TravellingAssistant ta = new TravellingAssistant();
+        private Utilizador u;
         private string email;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -38,20 +38,17 @@ namespace Interrail
                     u = new Utilizador(email, password, firstName, lastName);
                     ta.setUtilizador(u);
 
-                    string labelText = "Welcome, " + firstName + " " + lastName;
-                    Label1.Text = labelText;
+                    FirstNameBox.Text = firstName;
+                    LastNameBox.Text = lastName;
+                    EmailBox.Text = email;
+                    Password.Text = password;
                 }
             }
         }
 
-        protected void Button6_Click(object sender, EventArgs e)
+        protected void LinkButton1_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("~/Home.aspx");
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            string res = "~/Profile.aspx?id=" + email;
+            string res = "~/UserPage.aspx?id=" + email;
             Response.Redirect(res);
         }
     }
