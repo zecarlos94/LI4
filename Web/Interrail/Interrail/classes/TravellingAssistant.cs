@@ -12,8 +12,19 @@ namespace Interrail.classes
         private SqlConnection con;
         private SqlCommand cmd;
         private Utilizador u;
+        private Dictionary<string, string> messages = new Dictionary<string, string>();
         // Set de agendas
         // Set de relatórios
+
+        public int getMessages()
+        {
+            return this.messages.Count();
+        }
+
+        public void putMessage(string email, string message)
+        {
+            this.messages.Add(email, message);
+        }
 
         public void setUtilizador(Utilizador u)
         {

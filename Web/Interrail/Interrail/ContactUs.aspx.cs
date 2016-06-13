@@ -11,6 +11,8 @@ namespace Interrail
 {
     public partial class ContactUs : System.Web.UI.Page
     {
+        private TravellingAssistant ta = new TravellingAssistant();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,19 +27,14 @@ namespace Interrail
         {
             if (EmailBox.Text != "" && SubjectBox.Text != "" && MessageBox.Text != "")
             {
-                TravellingAssistant ta = new TravellingAssistant();
                 int res = ta.verificarEmail(EmailBox.Text);
 
                 if (res == 0) ErrorLabel.Text = "Email not registered!";
                 else {
-                    MailMessage mailMessage = new MailMessage();
-                    mailMessage.To.Add("travellingAssistantProject@gmail.com");
-                    mailMessage.From = new MailAddress(EmailBox.Text);
-                    mailMessage.Subject = SubjectBox.Text;
-                    mailMessage.Body = MessageBox.Text;
-                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-                    smtpClient.EnableSsl = true;
-                    smtpClient.Send(mailMessage);
+                    /**string msg = EmailBox.Text + ";" + SubjectBox.Text + ": " + MessageBox.Text;
+                    string result = "~/Home.aspx?id=" + msg;*/
+                    string msg = SubjectBox.Text + ": " + MessageBox.Text;
+                    ta.putMessage(EmailBox.Text, msg);
                     Response.Redirect("~/Home.aspx");
                 }
             }
