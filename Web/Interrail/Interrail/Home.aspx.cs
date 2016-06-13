@@ -13,9 +13,7 @@ namespace Interrail
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /**string message = Request.QueryString["id"];
-            string[] words = message.Split(';');
-            ta.putMessage(words[0], words[1]);*/
+            
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)

@@ -14,26 +14,26 @@
                 &nbsp;&nbsp;
                 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Size="XX-Large" Text="First Name"></asp:Label>
-&nbsp;
+                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Size="Larger" Text="First Name"></asp:Label>
+&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="FirstNameBox" runat="server" Enabled="False" Font-Names="Calibri" Width="431px"></asp:TextBox>
                 <br />
                 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Size="XX-Large" Text="Last Name"></asp:Label>
-&nbsp;&nbsp;
+                <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Size="Larger" Text="Last Name"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="LastNameBox" runat="server" Enabled="False" Font-Names="Calibri" Width="427px"></asp:TextBox>
                 <br />
                 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Size="XX-Large" Text="Email"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Size="Larger" Text="Email"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="EmailBox" runat="server" Enabled="False" Font-Names="Calibri" Width="427px"></asp:TextBox>
                 <br />
                 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="PasswordBox" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Size="XX-Large" Text="Password"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="PasswordBox" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Size="Larger" Text="Password"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                 <asp:TextBox ID="Password" runat="server" Enabled="False" Font-Names="Calibri" Width="427px"></asp:TextBox>
                 <br />
                 <br />
