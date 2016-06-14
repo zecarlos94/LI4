@@ -4,29 +4,29 @@ Aplicação WPF Web Browser
 %% O símbolo '-|-' revela as etapas feitas mas com algo pequeno a faltar
 %% O símbolo '//' é opcional
 
+//Adicionar escrita inteligente(Spelling check é fácil de implementar)
+
 -Altera imagem de fundo para a do Mockup
 -Pesquisa reenvia a query para www.google.pt
 -Barra Menus com botões de acordo com os mockups
 -Página About us
 -Página Login
 -Página Register
--|-Página Contact us
+-Página Contact us
+-Página Perfil de Utilizador
+-Pesquisa de locais no Google Maps(integração deste na nossa App)
 
-/*Zé*/
-Página Perfil de Utilizador(Mudar username)
-Página Perfil de Utilizador(Mudar password)
-
-/*Tiago ou André?*/
-Página de criação de Tarefas(Agenda Diária)
+/*André*/
+Página de criação de Tarefas(Agenda Diária), Google Calendar API
 Página com a Agenda Mensal
 
-/*André e Zé?*/
+/*André*/
 Galeria de Imagens agrupadas por Agenda Diária e por tarefa realizada nessa
-Pesquisa de locais no Google Maps(integração deste na nossa App)
 
-/*André e Zé ou Tiago e André? ou Zé e Tiago?*/
+/*Zé*/
+Descrever rota do percurso com base nas tarefas de uma dada agenda diária
+
+/*Tiago*/
 Ouvir e converter gravações .mp3 para texto(Reconhecimento de Voz)
 Elaborar relatorio .docx a partir das anotações(REVER ISTO PK O GUSTAVO DIZ QUE É NA WEB MAS NOS REQUISITOS ESTÁ TUDO NA MOBILE)
 Produzir ficheiros .pdf a partir de .docx
-
-//Adicionar escrita inteligente(Spelling check é fácil de implementar)
