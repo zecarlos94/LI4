@@ -101,6 +101,7 @@
     <Content Include="images\A71751.jpg" />
     <Content Include="images\A72223.png" />
     <Content Include="Login.aspx" />
+    <Content Include="Maps.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -122,6 +123,7 @@
     <Content Include="styles\AboutUsStyle.css" />
     <Content Include="styles\ContactUsStyle.css" />
     <Content Include="styles\HomeStyle.css" />
+    <Content Include="styles\MapStyle.css" />
     <Content Include="styles\LoginStyle.css" />
     <Content Include="styles\ProfileStyle.css" />
     <Content Include="styles\SigninStyle.css" />
@@ -159,6 +161,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Maps.aspx.cs">
+      <DependentUpon>Maps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Maps.aspx.designer.cs">
+      <DependentUpon>Maps.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

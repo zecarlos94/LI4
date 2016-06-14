@@ -54,5 +54,10 @@ namespace Interrail
             string res = "~/Profile.aspx?id=" + email;
             Response.Redirect(res);
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Maps.aspx");
+        }
     }
 }
