@@ -10,9 +10,11 @@ namespace Interrail
 {
     public partial class Maps : System.Web.UI.Page
     {
+        private string email;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            email = Request.QueryString["id"];
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -48,7 +50,8 @@ namespace Interrail
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/UserPage.aspx");
+            string res = "~/UserPage.aspx?id=" + email;
+            Response.Redirect(res);
         }
     }
 }
