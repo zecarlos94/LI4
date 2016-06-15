@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using Interrail.classes;
 
 namespace Interrail
 {
@@ -13,6 +14,7 @@ namespace Interrail
     {
         private SqlConnection con;
         private SqlCommand cmd;
+        private TravellingAssistant ta = new TravellingAssistant();
         private string email;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -32,8 +34,8 @@ namespace Interrail
             else
             {
                 string[] words = ReportList.SelectedItem.ToString().Split('#');
-                string response = "~/ReportPage.aspx?id=" + words[0] + "/" + email;
-                Response.Redirect(response);
+                int reportId = int.Parse(words[0]);
+                this.ta.gerarRelatorio(reportId);
             }
         }
 

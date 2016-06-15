@@ -1,9 +1,13 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.Configuration;
 
 namespace Interrail.classes
 {
@@ -12,20 +16,9 @@ namespace Interrail.classes
         private SqlConnection con;
         private SqlCommand cmd;
         private Utilizador u;
-        private Dictionary<string, string> messages = new Dictionary<string, string>();
+        private List<Relatorio> relatorios;
         // Set de agendas
-        // Set de relatórios
-
-        public int getMessages()
-        {
-            return this.messages.Count();
-        }
-
-        public void putMessage(string email, string message)
-        {
-            this.messages.Add(email, message);
-        }
-
+       
         public void setUtilizador(Utilizador u)
         {
             this.u = u;
@@ -96,6 +89,21 @@ namespace Interrail.classes
 
                 return 0;
             }
+        }
+
+        public void gerarRelatorio(int id)
+        {
+            Relatorio r = new Relatorio(id);
+
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(Path.Combine("c:\\Users\\Tiago\\Desktop\\", r.getTitulo() + ".pdf"), FileMode.Create));
+            doc.Open();
+
+            Paragraph par = new Paragraph(r.getTitulo());
+
+            doc.Add(par);
+            doc.Close();
         }
     }
 }

@@ -12,7 +12,7 @@
         <div id="MainData">
             <div id="Content">
                 <br />
-                  <iframe src="https://calendar.google.com/calendar/embed?src=travellingassistantproject%40gmail.com&ctz=Europe/Lisbon" style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+                  <iframe src="https://calendar.google.com/calendar/embed?src=travellingassistantproject%40gmail.com&ctz=Europe/Lisbon" style="border-style: none; border-color: inherit; border-width: 0; margin-left: 102px;" width="600" height="400" frameborder="0" scrolling="no"></iframe>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -37,7 +37,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
             <div id="Error">&nbsp;&nbsp;&nbsp;&nbsp;    
-                <asp:LinkButton ID="Label1" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Overline="False" Font-Size="Larger" ForeColor="White" OnClick="LinkButton1_Click">Back</asp:LinkButton>
+                <asp:LinkButton ID="Label1" runat="server" Font-Bold="True" Font-Names="Calibri" Font-Overline="False" Font-Size="Larger" ForeColor="White" OnClick="Label1_Click">Back</asp:LinkButton>
                 <br />
 &nbsp;&nbsp;&nbsp; </div>
         </div>

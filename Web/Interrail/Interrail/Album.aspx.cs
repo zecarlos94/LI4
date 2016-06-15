@@ -22,10 +22,11 @@ namespace Interrail
         string sql_local;
         string sql_data;
         byte[] bytes;//retrieved binary from Database
+        string email;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            email = Request.QueryString["id"];
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -106,10 +107,10 @@ namespace Interrail
 
         }
        
-        //Tiago faz a parte de mandar o mail sff nao me lembro
         protected void Button4_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/UserPage.aspx");
+            string res = "~/UserPage.aspx?id=" + email;
+            Response.Redirect(res);
         }
 
     }

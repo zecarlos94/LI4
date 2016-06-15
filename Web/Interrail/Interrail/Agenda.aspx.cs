@@ -31,7 +31,7 @@ namespace Interrail
         
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            email = Request.QueryString["id"];
             UserCredential credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                 new ClientSecrets
                 {
@@ -126,9 +126,11 @@ namespace Interrail
             string res = "~/Login.aspx" ;
             Response.Redirect(res);
         }
-        protected void LinkButton1_Click(object sender, EventArgs e)
+
+        protected void Label1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Signup.aspx");
+            string res = "~/UserPage.aspx?id=" + email;
+            Response.Redirect(res);
         }
     }
 }
