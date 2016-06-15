@@ -66,5 +66,10 @@ namespace Interrail
             string res = "~/Reports.aspx?id=" + email;
             Response.Redirect(res);
         }
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            string res = "~/Agenda.aspx?id=" + email;
+            Response.Redirect(res);
+        }
     }
 }
