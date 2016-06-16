@@ -36,6 +36,7 @@ namespace Interrail
                 string[] words = ReportList.SelectedItem.ToString().Split('#');
                 int reportId = int.Parse(words[0]);
                 this.ta.gerarRelatorio(reportId);
+                ErrorLabel.Text = "Report generated!";
             }
         }
 

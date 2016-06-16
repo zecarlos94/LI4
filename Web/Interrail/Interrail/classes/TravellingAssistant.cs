@@ -16,7 +16,7 @@ namespace Interrail.classes
         private SqlConnection con;
         private SqlCommand cmd;
         private Utilizador u;
-        private List<Relatorio> relatorios;
+        private List<Relatorio> relatorios = new List<Relatorio>();
         // Set de agendas
        
         public void setUtilizador(Utilizador u)
@@ -100,9 +100,68 @@ namespace Interrail.classes
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(Path.Combine("c:\\Users\\Tiago\\Desktop\\", r.getTitulo() + ".pdf"), FileMode.Create));
             doc.Open();
 
-            Paragraph par = new Paragraph(r.getTitulo());
-
+            // Title
+            string title = r.getTitulo();
+            title = title.Replace(Environment.NewLine, String.Empty).Replace("  ", String.Empty);
+            Font titleFont = FontFactory.GetFont("arial", 30f, Font.BOLD);
+            titleFont.Color = BaseColor.BLACK;
+            Chunk beginningReport = new Chunk(title, titleFont);
+            Phrase p1 = new Phrase(beginningReport);
+            Paragraph par = new Paragraph();
+            par.Alignment = Element.ALIGN_CENTER;
+            par.Add(p1);
             doc.Add(par);
+
+            // Email
+            string email = "Creator email: " + r.getCriador();
+            email = email.Replace(Environment.NewLine, String.Empty).Replace("  ", String.Empty);
+            Font emailFont = FontFactory.GetFont("arial", 10f);
+            emailFont.Color = BaseColor.BLACK;
+            Chunk beginningReportEmail = new Chunk(email, emailFont);
+            Phrase p2 = new Phrase(beginningReportEmail);
+            Paragraph par2 = new Paragraph();
+            par2.Alignment = Element.ALIGN_CENTER;
+            par2.Add(p2);
+            doc.Add(par2);
+
+            // Data
+            string data = r.getData().ToString();
+            data = data.Replace(Environment.NewLine, String.Empty).Replace("  ", String.Empty);
+            Font dataFont = FontFactory.GetFont("arial", 10f);
+            dataFont.Color = BaseColor.BLACK;
+            Chunk beginningReportData = new Chunk(data, dataFont);
+            Phrase p3 = new Phrase(beginningReportData);
+            Paragraph par3 = new Paragraph();
+            par3.Alignment = Element.ALIGN_CENTER;
+            par3.Add(p3);
+            doc.Add(par3);
+
+            // Sections
+            List<Section> sections = r.getSections();
+            try
+            {
+                int section = 1;
+                foreach (Section s in sections)
+                {
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+
+                    // Title and Data
+                    string titleSection = section.ToString() + ". " + s.getTitulo() + " (" + s.getData() + ")";
+                    titleSection = titleSection.Replace(Environment.NewLine, String.Empty).Replace("  ", String.Empty);
+                    Font titleSectionFont = FontFactory.GetFont("arial", 20f, Font.BOLD);
+                    titleSectionFont.Color = BaseColor.BLACK;
+                    Chunk beginningReportSection = new Chunk(titleSection, titleSectionFont);
+                    Phrase p4 = new Phrase(beginningReportSection);
+                    Paragraph par6 = new Paragraph();
+                    par6.Add(p4);
+                    doc.Add(par6);
+
+                    section++;
+                }
+            }
+            catch(NullReferenceException) { }
+
             doc.Close();
         }
     }

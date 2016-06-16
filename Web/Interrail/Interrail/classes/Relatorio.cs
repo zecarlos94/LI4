@@ -15,7 +15,7 @@ namespace Interrail.classes
         private DateTime data;
         private string titulo;
         private string criador;
-        private List<Section> sections;
+        private List<Section> sections = new List<Section>();
 
         public Relatorio(int id)
         {
@@ -33,8 +33,9 @@ namespace Interrail.classes
                     this.titulo = reader.GetString(2);
                     this.criador = reader.GetString(4);
                 }
-                getSections();
+                con.Close();
             }
+            generateSections();
         }
 
         public DateTime getData()
@@ -52,7 +53,12 @@ namespace Interrail.classes
             return this.criador;
         }
 
-        public void getSections()
+        public List<Section> getSections()
+        {
+            return this.sections;
+        }
+
+        public void generateSections()
         {
             con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
             {
@@ -69,12 +75,9 @@ namespace Interrail.classes
 
                     Section s = new Section(idTarefa, designacao, dataTarefa);
 
-                    try
-                    {
-                        this.sections.Add(s);
-                    }
-                    catch(NullReferenceException) {}
+                    this.sections.Add(s);
                 }
+                con.Close();
             }
         }
     }

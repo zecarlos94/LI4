@@ -14,7 +14,7 @@ namespace Interrail.classes
         private int id;
         private string titulo;
         private DateTime data;
-        private List<SubSection> subSections;
+        private List<SubSection> subSections = new List<SubSection>();
 
         public Section(int id, string titulo, DateTime data)
         {
