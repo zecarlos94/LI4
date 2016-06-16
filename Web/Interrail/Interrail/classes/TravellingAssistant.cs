@@ -157,6 +157,48 @@ namespace Interrail.classes
                     par6.Add(p4);
                     doc.Add(par6);
 
+                    // SubSections
+                    List<SubSection> subSections = s.getSubSections();
+                    int subSection = 1;
+                    foreach(SubSection ss in subSections)
+                    {
+                        doc.Add(new Chunk("\n"));
+                        doc.Add(new Chunk("\n"));
+
+                        // Title and Data
+                        string titleSubSection = section.ToString() + "." + subSection.ToString() + ". " + ss.getTitulo() + " (" + ss.getData() + ")";
+                        titleSubSection = titleSubSection.Replace(Environment.NewLine, String.Empty).Replace("  ", String.Empty);
+                        Font titleSubSectionFont = FontFactory.GetFont("arial", 14f, Font.BOLD);
+                        titleSubSectionFont.Color = BaseColor.BLACK;
+                        Chunk beginningReportSubSection = new Chunk(titleSubSection, titleSubSectionFont);
+                        Phrase p5 = new Phrase(beginningReportSubSection);
+                        Paragraph par7 = new Paragraph();
+                        par7.Add(p5);
+                        doc.Add(par7);
+
+                        // Coordinates
+                        string coordSubSection = ss.getCoordinates();
+                        coordSubSection = coordSubSection.Replace(Environment.NewLine, String.Empty).Replace("  ", String.Empty);
+                        Font coordSubSectionFont = FontFactory.GetFont("arial", 10f, Font.BOLD);
+                        coordSubSectionFont.Color = BaseColor.BLACK;
+                        Chunk beginningReportCoordSubSection = new Chunk(coordSubSection, coordSubSectionFont);
+                        Phrase p6 = new Phrase(beginningReportCoordSubSection);
+                        Paragraph par8 = new Paragraph();
+                        par8.Add(p6);
+                        doc.Add(par8);
+
+                        // Text...
+
+                        // Image
+                        byte[] imageData = ss.getImage();
+                        if(imageData != null)
+                        {
+                            Image img = Image.GetInstance(imageData);
+                            img.ScaleToFit(doc.PageSize.Width, doc.PageSize.Height);
+                            doc.Add(img);
+                        }
+                    }
+
                     section++;
                 }
             }

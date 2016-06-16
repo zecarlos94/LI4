@@ -31,10 +31,12 @@ namespace Interrail.classes
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    byte[] image = (byte[]) reader["Imagem"];
                     string entradaTitle = reader.GetString(4);
+                    string coord = reader["Coordenadas"].ToString();
                     DateTime entradaData = reader.GetDateTime(6);
 
-                    SubSection ss = new SubSection(entradaTitle, entradaData);
+                    SubSection ss = new SubSection(image, entradaTitle, coord, entradaData);
                     this.subSections.Add(ss);
                 }
             }
@@ -48,6 +50,11 @@ namespace Interrail.classes
         public DateTime getData()
         {
             return this.data;
+        }
+
+        public List<SubSection> getSubSections()
+        {
+            return this.subSections;
         }
     }
 }
