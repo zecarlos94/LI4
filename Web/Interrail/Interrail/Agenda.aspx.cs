@@ -28,8 +28,8 @@ namespace Interrail
         SqlCommand cmd;
         SqlCommand cmmd;
         SqlDataReader reader;
-        SqlConnection con = new SqlConnection(@"Data Source =TIAGO-PC\TIAGOSERVER; Initial Catalog = Interrail; Integrated Security = True");
-        SqlConnection conn = new SqlConnection(@"Data Source =TIAGO-PC\TIAGOSERVER; Initial Catalog = Interrail; Integrated Security = True");
+        SqlConnection con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
         private string email;
 
         string sql_id_local;
@@ -38,16 +38,17 @@ namespace Interrail
 
         string getLocal(int id) {
 
-            string localizacao;
+            string localizacao = null;
             if (conn.State != ConnectionState.Open)
             {
+                cmmd = new SqlCommand("SELECT * FROM Local WHERE Id = @Id", con);
+                cmmd.Parameters.AddWithValue("@Id", id);
                 con.Open();
+                SqlDataReader local = cmmd.ExecuteReader();
+                local.Read();
+                localizacao = local.GetString(3) + ", " + local.GetString(4);
+                con.Close();
             }
-            cmmd = new SqlCommand("SELECT * FROM Local WHERE Id = @Id", con);
-            cmmd.Parameters.AddWithValue("@Id",id);
-            SqlDataReader local = cmmd.ExecuteReader();
-            local.Read();
-            localizacao = local.GetString(3) + ", " + local.GetString(4);
             return localizacao;
         }   
 
@@ -111,7 +112,10 @@ namespace Interrail
 
                 string designacao = reader.GetString(1);
                 DateTime dataTarefa = reader.GetDateTime(2);
-                int horafim = dataTarefa.Hour + 2;
+                int horafim;
+                if (dataTarefa.Hour == 22) horafim = 0;
+                else if (dataTarefa.Hour == 23) horafim = 1;
+                else horafim = dataTarefa.Hour + 2;
                 Event myEvent = new Event
                 {
 
@@ -134,8 +138,6 @@ namespace Interrail
 
                 Event recurringEvent1 = service.Events.Insert(myEvent, "primary").Execute();
             }
-
-
 
 
 

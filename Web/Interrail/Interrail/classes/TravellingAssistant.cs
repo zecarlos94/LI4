@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Configuration;
+using System.Media;
 
 namespace Interrail.classes
 {
@@ -189,15 +190,18 @@ namespace Interrail.classes
 
                         // Text
                         byte[] text = ss.getTexto();
-                        string textSubSection = System.Text.Encoding.UTF8.GetString(text);
-                        textSubSection = textSubSection.Replace(Environment.NewLine, String.Empty).Replace("  ", String.Empty);
-                        Font textSubSectionFont = FontFactory.GetFont("arial", 10f, Font.BOLD);
-                        textSubSectionFont.Color = BaseColor.BLACK;
-                        Chunk beginningReportTextSubSection = new Chunk(textSubSection, textSubSectionFont);
-                        Phrase p7 = new Phrase(beginningReportTextSubSection);
-                        Paragraph par9 = new Paragraph();
-                        par9.Add(p7);
-                        doc.Add(par9);
+                        if(text != null)
+                        {
+                            string textSubSection = System.Text.Encoding.UTF8.GetString(text);
+                            textSubSection = textSubSection.Replace(Environment.NewLine, String.Empty).Replace("  ", String.Empty);
+                            Font textSubSectionFont = FontFactory.GetFont("arial", 10f, Font.BOLD);
+                            textSubSectionFont.Color = BaseColor.BLACK;
+                            Chunk beginningReportTextSubSection = new Chunk(textSubSection, textSubSectionFont);
+                            Phrase p7 = new Phrase(beginningReportTextSubSection);
+                            Paragraph par9 = new Paragraph();
+                            par9.Add(p7);
+                            doc.Add(par9);
+                        }
 
                         // Image
                         byte[] imageData = ss.getImage();
@@ -207,6 +211,16 @@ namespace Interrail.classes
                             img.ScaleToFit(doc.PageSize.Width, doc.PageSize.Height);
                             doc.Add(img);
                         }
+
+                        // Audio
+                        byte[] audio = ss.getAudio();
+                        if (audio != null)
+                        {
+                            string path = "C:\\Users\\Tiago\\Desktop\\reportAudio.mp3";
+                            File.WriteAllBytes(path, audio);
+                        }
+
+                        subSection++;
                     }
 
                     section++;

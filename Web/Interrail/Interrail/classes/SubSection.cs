@@ -9,18 +9,19 @@ namespace Interrail.classes
     {
         private string titulo;
         private byte[] image;
-        // Audio
+        private byte[] audio;
         private string coordinates;
         private DateTime data;
         private byte[] texto;
 
-        public SubSection(byte[] image, byte[] texto, string titulo, string coordinates, DateTime data)
+        public SubSection(byte[] image, byte[] audio, byte[] texto, string titulo, string coordinates, DateTime data)
         {
             this.image = image;
             this.titulo = titulo;
             this.data = data;
             this.coordinates = coordinates;
             this.texto = texto;
+            this.audio = audio;
         }
 
         public string getTitulo()
@@ -46,6 +47,11 @@ namespace Interrail.classes
         public string getCoordinates()
         {
             return this.coordinates;
+        }
+
+        public byte[] getAudio()
+        {
+            return this.audio;
         }
     }
 }

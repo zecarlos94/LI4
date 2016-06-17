@@ -32,6 +32,7 @@ namespace Interrail.classes
                 while (reader.Read())
                 {
                     byte[] image = null;
+                    byte[] audio = null;
                     byte[] text = null;
 
                     Object a = reader["Imagem"];
@@ -39,6 +40,13 @@ namespace Interrail.classes
                     if (s != "")
                     {
                         image = (byte[]) a;
+                    }
+
+                    Object c = reader["FicheiroAudio"];
+                    string s3 = c.ToString();
+                    if (s3 != "")
+                    {
+                        audio = (byte[]) c;
                     }
 
                     Object b = reader["FicheiroTexto"];
@@ -52,7 +60,7 @@ namespace Interrail.classes
                     string coord = reader["Coordenadas"].ToString();
                     DateTime entradaData = reader.GetDateTime(6);
 
-                    SubSection ss = new SubSection(image, text, entradaTitle, coord, entradaData);
+                    SubSection ss = new SubSection(image, audio, text, entradaTitle, coord, entradaData);
                     this.subSections.Add(ss);
                 }
             }
