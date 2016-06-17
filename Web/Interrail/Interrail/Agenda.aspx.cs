@@ -39,9 +39,12 @@ namespace Interrail
         string getLocal(int id) {
 
             string localizacao;
-
+            if (conn.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
             cmmd = new SqlCommand("SELECT * FROM Local WHERE Id = @Id", con);
-            cmmd.Parameters.AddWithValue("@Id", reader.GetString(5));
+            cmmd.Parameters.AddWithValue("@Id",id);
             SqlDataReader local = cmmd.ExecuteReader();
             local.Read();
             localizacao = local.GetString(3) + ", " + local.GetString(4);
@@ -116,7 +119,8 @@ namespace Interrail
                     Location = getLocal((int) reader.GetValue(5)),
                     Start = new EventDateTime()
                     {
-                        DateTime = dataTarefa
+                        DateTime = new DateTime(dataTarefa.Year, dataTarefa.Month, dataTarefa.Day, dataTarefa.Hour, dataTarefa.Minute, dataTarefa.Second)
+
                     },
                     End = new EventDateTime()
                     {
