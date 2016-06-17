@@ -12,14 +12,15 @@ namespace Interrail.classes
         // Audio
         private string coordinates;
         private DateTime data;
-        private string texto;
+        private byte[] texto;
 
-        public SubSection(byte[] image, string titulo, string coordinates, DateTime data)
+        public SubSection(byte[] image, byte[] texto, string titulo, string coordinates, DateTime data)
         {
             this.image = image;
             this.titulo = titulo;
             this.data = data;
             this.coordinates = coordinates;
+            this.texto = texto;
         }
 
         public string getTitulo()
@@ -32,7 +33,7 @@ namespace Interrail.classes
             return this.image;
         }
 
-        public string getTexto()
+        public byte[] getTexto()
         {
             return this.texto;
         }

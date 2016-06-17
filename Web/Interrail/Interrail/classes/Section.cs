@@ -31,12 +31,28 @@ namespace Interrail.classes
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    byte[] image = (byte[]) reader["Imagem"];
+                    byte[] image = null;
+                    byte[] text = null;
+
+                    Object a = reader["Imagem"];
+                    string s = a.ToString();
+                    if (s != "")
+                    {
+                        image = (byte[]) a;
+                    }
+
+                    Object b = reader["FicheiroTexto"];
+                    string s2 = b.ToString();
+                    if(s2 != "")
+                    {
+                        text = (byte[]) b;
+                    }
+
                     string entradaTitle = reader.GetString(4);
                     string coord = reader["Coordenadas"].ToString();
                     DateTime entradaData = reader.GetDateTime(6);
 
-                    SubSection ss = new SubSection(image, entradaTitle, coord, entradaData);
+                    SubSection ss = new SubSection(image, text, entradaTitle, coord, entradaData);
                     this.subSections.Add(ss);
                 }
             }

@@ -187,7 +187,17 @@ namespace Interrail.classes
                         par8.Add(p6);
                         doc.Add(par8);
 
-                        // Text...
+                        // Text
+                        byte[] text = ss.getTexto();
+                        string textSubSection = System.Text.Encoding.UTF8.GetString(text);
+                        textSubSection = textSubSection.Replace(Environment.NewLine, String.Empty).Replace("  ", String.Empty);
+                        Font textSubSectionFont = FontFactory.GetFont("arial", 10f, Font.BOLD);
+                        textSubSectionFont.Color = BaseColor.BLACK;
+                        Chunk beginningReportTextSubSection = new Chunk(textSubSection, textSubSectionFont);
+                        Phrase p7 = new Phrase(beginningReportTextSubSection);
+                        Paragraph par9 = new Paragraph();
+                        par9.Add(p7);
+                        doc.Add(par9);
 
                         // Image
                         byte[] imageData = ss.getImage();
