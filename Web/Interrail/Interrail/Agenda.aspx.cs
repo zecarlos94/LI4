@@ -28,12 +28,26 @@ namespace Interrail
         SqlCommand cmd;
         SqlCommand cmmd;
         SqlDataReader reader;
-        SqlConnection conn = new SqlConnection(@"Data Source = TIAGO - PC\TIAGOSERVER; Initial Catalog = Interrail; Integrated Security = True");
+        SqlConnection con = new SqlConnection(@"Data Source =TIAGO-PC\TIAGOSERVER; Initial Catalog = Interrail; Integrated Security = True");
+        SqlConnection conn = new SqlConnection(@"Data Source =TIAGO-PC\TIAGOSERVER; Initial Catalog = Interrail; Integrated Security = True");
         private string email;
 
         string sql_id_local;
         string sql_local;
         string sql_data;
+
+        string getLocal(int id) {
+
+            string localizacao;
+
+            cmmd = new SqlCommand("SELECT * FROM Local WHERE Id = @Id", con);
+            cmmd.Parameters.AddWithValue("@Id", reader.GetString(5));
+            SqlDataReader local = cmmd.ExecuteReader();
+            local.Read();
+            localizacao = local.GetString(3) + ", " + local.GetString(4);
+            return localizacao;
+        }   
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -94,16 +108,12 @@ namespace Interrail
 
                 string designacao = reader.GetString(1);
                 DateTime dataTarefa = reader.GetDateTime(2);
-                cmmd = new SqlCommand("SELECT * FROM Local WHERE Id = @Id", conn);
-                cmmd.Parameters.AddWithValue("@Id", reader.GetString(5));
-                SqlDataReader local = cmmd.ExecuteReader();
-                local.Read();
                 int horafim = dataTarefa.Hour + 2;
                 Event myEvent = new Event
                 {
 
                     Summary = designacao,
-                    Location = local.GetString(3) + ", " + local.GetString(4),
+                    Location = getLocal((int) reader.GetValue(5)),
                     Start = new EventDateTime()
                     {
                         DateTime = dataTarefa
