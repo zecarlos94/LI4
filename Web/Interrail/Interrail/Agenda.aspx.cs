@@ -25,8 +25,6 @@ namespace Interrail
         static string ApplicationName = "Google Calendar API Quickstart";
         private TravellingAssistant ta = new TravellingAssistant();
         DataTable dt;//save all results 
-        SqlCommand cmd;
-        SqlCommand cmmd;
         SqlDataReader reader;
         SqlConnection con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
         SqlConnection conn = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
@@ -37,7 +35,7 @@ namespace Interrail
         string sql_data;
 
         string getLocal(int id) {
-
+            SqlCommand cmmd;
             string localizacao = null;
             if (conn.State != ConnectionState.Open)
             {
@@ -50,11 +48,12 @@ namespace Interrail
                 con.Close();
             }
             return localizacao;
-        }   
+        }
+
+        void insertLocais(int id) {
+            SqlCommand cmmmd;
 
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
             email = Request.QueryString["id"];
             UserCredential credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                 new ClientSecrets
@@ -72,6 +71,65 @@ namespace Interrail
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
+            cmmmd = new SqlCommand("SELECT * FROM Tarefa WHERE fk_Agenda = @Id", conn);
+            cmmmd.Parameters.AddWithValue("@Id", id);
+
+
+
+            reader = cmmmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+
+
+                string designacao = reader.GetString(1);
+                DateTime dataTarefa = reader.GetDateTime(2);
+                DateTime horafim = dataTarefa;
+                horafim.AddHours(2);
+                Event myEvent = new Event
+                {
+
+                    Summary = designacao,
+                    Location = getLocal((int)reader.GetValue(5)),
+                    Start = new EventDateTime()
+                    {
+                        DateTime = dataTarefa
+
+                    },
+                    End = new EventDateTime()
+                    {
+                        DateTime = horafim
+                    },
+                    Attendees = new List<EventAttendee>()
+                  {
+                    new EventAttendee() { Email = "travellingassistantproject@gmail.com" }
+                   }
+                };
+
+                Event recurringEvent1 = service.Events.Insert(myEvent, "primary").Execute();
+            }
+
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            SqlCommand cmd;
+                email = Request.QueryString["id"];
+                UserCredential credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    new ClientSecrets
+                    {
+                        ClientId = "398537552404-5qg321due18i3qpo5hsfs10c4563use2.apps.googleusercontent.com",
+                        ClientSecret = "MdxNx6Ko_mL0k6w3ftTRAqyb",
+                    },
+                    new[] { CalendarService.Scope.Calendar },
+                    "user",
+                    CancellationToken.None).Result;
+
+                // Create Google Calendar API service.
+                var service = new CalendarService(new BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = ApplicationName,
+                });
 
             // Define parameters of request.
             EventsResource.ListRequest request = service.Events.List("primary");
@@ -98,43 +156,16 @@ namespace Interrail
             {
                 conn.Open();
             }
-
-            cmd = new SqlCommand("SELECT * FROM Tarefa WHERE fk_Agenda = (SELECT Id FROM Agenda WHERE fk_Utilizador = @Email)", conn);
+            cmd = new SqlCommand("SELECT Id FROM Agenda WHERE fk_Utilizador = @Email", conn);
             cmd.Parameters.AddWithValue("@Email", email);
-            
+
 
 
             reader = cmd.ExecuteReader();
 
-            while (reader.Read())
-            {
+            while (reader.Read()) {
+                insertLocais((int) reader.GetValue(0));
 
-
-                string designacao = reader.GetString(1);
-                DateTime dataTarefa = reader.GetDateTime(2);
-                DateTime horafim = dataTarefa;
-                horafim.AddHours(2);
-                Event myEvent = new Event
-                {
-
-                    Summary = designacao,
-                    Location = getLocal((int) reader.GetValue(5)),
-                    Start = new EventDateTime()
-                    {
-                        DateTime = dataTarefa
-
-                    },
-                    End = new EventDateTime()
-                    {
-                        DateTime = horafim
-                    },
-                    Attendees = new List<EventAttendee>()
-                  {
-                    new EventAttendee() { Email = "travellingassistantproject@gmail.com" }
-                   }
-                };
-
-                Event recurringEvent1 = service.Events.Insert(myEvent, "primary").Execute();
             }
 
 
