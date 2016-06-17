@@ -75,7 +75,7 @@ namespace Interrail
 
             // Define parameters of request.
             EventsResource.ListRequest request = service.Events.List("primary");
-            request.TimeMin = new DateTime(2016, 6, 1, 10, 0, 0);
+            request.TimeMin = new DateTime(1900, 1, 1, 0, 0, 0);
             request.ShowDeleted = false;
             request.SingleEvents = true;
             request.MaxResults = 10;
@@ -112,10 +112,8 @@ namespace Interrail
 
                 string designacao = reader.GetString(1);
                 DateTime dataTarefa = reader.GetDateTime(2);
-                int horafim;
-                if (dataTarefa.Hour == 22) horafim = 0;
-                else if (dataTarefa.Hour == 23) horafim = 1;
-                else horafim = dataTarefa.Hour + 2;
+                DateTime horafim = dataTarefa;
+                horafim.AddHours(2);
                 Event myEvent = new Event
                 {
 
@@ -123,12 +121,12 @@ namespace Interrail
                     Location = getLocal((int) reader.GetValue(5)),
                     Start = new EventDateTime()
                     {
-                        DateTime = new DateTime(dataTarefa.Year, dataTarefa.Month, dataTarefa.Day, dataTarefa.Hour, dataTarefa.Minute, dataTarefa.Second)
+                        DateTime = dataTarefa
 
                     },
                     End = new EventDateTime()
                     {
-                        DateTime = new DateTime(dataTarefa.Year, dataTarefa.Month, dataTarefa.Day, horafim, dataTarefa.Minute, dataTarefa.Second)
+                        DateTime = horafim
                     },
                     Attendees = new List<EventAttendee>()
                   {
