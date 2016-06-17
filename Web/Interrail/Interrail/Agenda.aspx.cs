@@ -93,11 +93,12 @@ namespace Interrail
 
 
                 string designacao = reader.GetString(1);
-                string data = reader.GetString(2);
+                DateTime dataTarefa = reader.GetDateTime(2);
                 cmmd = new SqlCommand("SELECT * FROM Local WHERE Id = @Id", conn);
                 cmmd.Parameters.AddWithValue("@Id", reader.GetString(5));
                 SqlDataReader local = cmmd.ExecuteReader();
                 local.Read();
+                int horafim = dataTarefa.Hour + 2;
                 Event myEvent = new Event
                 {
 
@@ -105,11 +106,11 @@ namespace Interrail
                     Location = local.GetString(3) + ", " + local.GetString(4),
                     Start = new EventDateTime()
                     {
-                        DateTime = new DateTime(2016, 6, 22, 10, 0, 0)
+                        DateTime = dataTarefa
                     },
                     End = new EventDateTime()
                     {
-                        DateTime = new DateTime(2016, 6, 22, 10, 30, 0)
+                        DateTime = new DateTime(dataTarefa.Year, dataTarefa.Month, dataTarefa.Day, horafim, dataTarefa.Minute, dataTarefa.Second)
                     },
                     Attendees = new List<EventAttendee>()
                   {
