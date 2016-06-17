@@ -147,6 +147,8 @@
     <Content Include="Agenda.aspx" />
     <Content Include="Album.aspx" />
     <Content Include="ContactUs.aspx" />
+    <Content Include="FilterCity.aspx" />
+    <Content Include="FilterDate.aspx" />
     <Content Include="images\A70443.png" />
     <Content Include="images\A71223.png" />
     <Content Include="images\A71751.jpg" />
@@ -183,6 +185,7 @@
     <Content Include="styles\ReportStyle.css" />
     <Content Include="styles\SigninStyle.css" />
     <Content Include="styles\UserPageStyle.css" />
+    <Content Include="Unfiltered.aspx" />
     <Content Include="UserPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -219,6 +222,20 @@
     </Compile>
     <Compile Include="ContactUs.aspx.designer.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FilterCity.aspx.cs">
+      <DependentUpon>FilterCity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FilterCity.aspx.designer.cs">
+      <DependentUpon>FilterCity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FilterDate.aspx.cs">
+      <DependentUpon>FilterDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FilterDate.aspx.designer.cs">
+      <DependentUpon>FilterDate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -262,6 +279,13 @@
     </Compile>
     <Compile Include="Signup.aspx.designer.cs">
       <DependentUpon>Signup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Unfiltered.aspx.cs">
+      <DependentUpon>Unfiltered.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Unfiltered.aspx.designer.cs">
+      <DependentUpon>Unfiltered.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserPage.aspx.cs">
       <DependentUpon>UserPage.aspx</DependentUpon>
