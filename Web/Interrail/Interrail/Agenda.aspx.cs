@@ -25,34 +25,33 @@ namespace Interrail
         static string ApplicationName = "Google Calendar API Quickstart";
         private TravellingAssistant ta = new TravellingAssistant();
         DataTable dt;//save all results 
-        SqlDataReader reader;
-        SqlConnection con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
-        SqlConnection conn = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
         private string email;
 
         string sql_id_local;
         string sql_local;
         string sql_data;
 
-        string getLocal(int id) {
+        public string getLocal(int id) {
+
+            SqlConnection con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
             SqlCommand cmmd;
             string localizacao = null;
-            if (conn.State != ConnectionState.Open)
-            {
-                cmmd = new SqlCommand("SELECT * FROM Local WHERE Id = @Id", con);
-                cmmd.Parameters.AddWithValue("@Id", id);
-                con.Open();
-                SqlDataReader local = cmmd.ExecuteReader();
-                local.Read();
-                localizacao = local.GetString(3) + ", " + local.GetString(4);
-                con.Close();
-            }
+            
+            cmmd = new SqlCommand("SELECT * FROM Local WHERE Id = @Id", con);
+            cmmd.Parameters.AddWithValue("@Id", id);
+            con.Open();
+            SqlDataReader local = cmmd.ExecuteReader();
+            local.Read();
+            localizacao = local.GetString(3) + ", " + local.GetString(4);
+            con.Close();
+            
             return localizacao;
         }
 
-        void insertLocais(int id) {
+        public void insertLocais(int id) {
             SqlCommand cmmmd;
-
+            SqlDataReader tasks;
+            SqlConnection connn = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
 
             email = Request.QueryString["id"];
             UserCredential credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
@@ -71,26 +70,26 @@ namespace Interrail
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
-            cmmmd = new SqlCommand("SELECT * FROM Tarefa WHERE fk_Agenda = @Id", conn);
+            cmmmd = new SqlCommand("SELECT * FROM Tarefa WHERE fk_Agenda = @Id", connn);
             cmmmd.Parameters.AddWithValue("@Id", id);
 
+            connn.Open();
 
+            tasks = cmmmd.ExecuteReader();
 
-            reader = cmmmd.ExecuteReader();
-
-            while (reader.Read())
+            while (tasks.Read())
             {
 
 
-                string designacao = reader.GetString(1);
-                DateTime dataTarefa = reader.GetDateTime(2);
+                string designacao = tasks.GetString(1);
+                DateTime dataTarefa = tasks.GetDateTime(2);
                 DateTime horafim = dataTarefa;
                 horafim.AddHours(2);
                 Event myEvent = new Event
                 {
 
                     Summary = designacao,
-                    Location = getLocal((int)reader.GetValue(5)),
+                    Location = getLocal((int)tasks.GetValue(5)),
                     Start = new EventDateTime()
                     {
                         DateTime = dataTarefa
@@ -112,6 +111,9 @@ namespace Interrail
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            SqlDataReader reader;
+            SqlConnection conn = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
             SqlCommand cmd;
                 email = Request.QueryString["id"];
                 UserCredential credential = GoogleWebAuthorizationBroker.AuthorizeAsync(

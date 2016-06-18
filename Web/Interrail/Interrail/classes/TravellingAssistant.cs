@@ -17,7 +17,7 @@ namespace Interrail.classes
         private SqlConnection con;
         private SqlCommand cmd;
         private Utilizador u;
-        private List<Relatorio> relatorios = new List<Relatorio>();
+        private Relatorio r;
         // Set de agendas
        
         public void setUtilizador(Utilizador u)
@@ -94,7 +94,7 @@ namespace Interrail.classes
 
         public void gerarRelatorio(int id)
         {
-            Relatorio r = new Relatorio(id);
+            r = new Relatorio(id);
 
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             
