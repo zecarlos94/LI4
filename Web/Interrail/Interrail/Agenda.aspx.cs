@@ -161,10 +161,10 @@ namespace Interrail
 
 
 
-            reader = cmd.ExecuteReader();
+            SqlDataReader tarefas = cmd.ExecuteReader();
 
-            while (reader.Read()) {
-                insertLocais((int) reader.GetValue(0));
+            while (tarefas.Read()) {
+                insertLocais((int) tarefas.GetValue(0));
 
             }
 
