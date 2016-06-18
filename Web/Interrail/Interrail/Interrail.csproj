@@ -171,8 +171,10 @@
     <Content Include="images\explore-wallpaper.jpeg" />
     <Content Include="Profile.aspx" />
     <Content Include="Reports.aspx" />
+    <Content Include="RoutesMap.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\saveImageMaps.js" />
     <Content Include="Signup.aspx" />
     <Content Include="styles\AboutUsStyle.css" />
     <Content Include="styles\AgendaStyle.css" />
@@ -272,6 +274,13 @@
     </Compile>
     <Compile Include="Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoutesMap.aspx.cs">
+      <DependentUpon>RoutesMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoutesMap.aspx.designer.cs">
+      <DependentUpon>RoutesMap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Signup.aspx.cs">
       <DependentUpon>Signup.aspx</DependentUpon>

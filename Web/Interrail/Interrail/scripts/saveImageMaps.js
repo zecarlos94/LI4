@@ -1,16 +1,51 @@
 ﻿var markers = [
            {
-               "title": 'Real',
-               "lat": '41.553065',
-               "lng": '-8.435386',
-               "description": 'Real is the best.'
+               "title": 'Eiffel Tower',
+               "lat": '48.858207',
+               "lng": '2.294667',
+               "description": 'Paris,France.'
            }
        ,
            {
-               "title": 'Uminho',
-               "lat": '41.558423',
-               "lng": '-8.397457',
-               "description": 'Uminho is nice.'
+               "title": 'National Monument',
+               "lat": '52.372816',
+               "lng": '4.893700',
+               "description": 'Amsterdam,Netherlands.'
+           }
+      ,
+           {
+               "title": 'Anne Fran House',
+               "lat": '52.375255',
+               "lng": '4.883847',
+               "description": 'Amsterdam,Netherlands.'
+           }
+      ,
+           {
+               "title": 'Siegestor',
+               "lat": '48.152338',
+               "lng": '11.582023',
+               "description": 'Munchen,Germany.'
+           }
+      ,
+           {
+               "title": 'Colosseo',
+               "lat": '41.890082',
+               "lng": '12.492285',
+               "description": 'Rome,Italy.'
+           }
+      ,
+           {
+               "title": 'The Motherland Calls',
+               "lat": '48.742281',
+               "lng": '44.536901',
+               "description": 'Volgograd,Russia.'
+           }
+      ,
+           {
+               "title": 'Obelisk(Tolyatti)',
+               "lat": '53.521136',
+               "lng": '49.274878',
+               "description": 'Tolyatti,Russia.'
            }
 ];
 
