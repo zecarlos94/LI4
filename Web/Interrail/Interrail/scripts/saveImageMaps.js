@@ -36,11 +36,56 @@
            }
      ];
 
-window.onload = function () {
-    LoadMap();
-}
+
+
 var map, mapOptions;
-function LoadMap() {
+function LoadMap(email, agenda) {
+
+   
+
+    var connection = new ActiveXObject("ADODB.Connection") ;
+
+    var connectionstring="Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=<catalog>;User ID=<user>;Password=<password>;Provider=SQLOLEDB";
+
+    connection.Open(connectionstring);
+    var rs = new ActiveXObject("ADODB.Recordset");
+    var command =   "SELECT Local FROM Tarefa WHERE fk_Agenda =".concat(agenda);
+    rs.Open(command, connection);
+    rs.MoveFirst;
+
+    while(!rs.eof)
+    {
+        var connectionn = new ActiveXObject("ADODB.Connection") ;
+
+        var connectionstringg ="Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=<catalog>;User ID=<user>;Password=<password>;Provider=SQLOLEDB";
+
+        connectionn.Open(connectionstringg);
+        var rs1 = new ActiveXObject("ADODB.Recordset");
+        var command1 =   "SELECT Descricao, Coordenadas.ToString(), Cidade, Pais FROM Local WHERE Id = @Id".concat(rs.fields(0));
+        rs1.Open(command1, connectionn);
+        rs1.MoveFirst;
+
+
+        var title = rs1.fields(0);
+        var description =  rs1.fields(2).concat(",".concat(rs1.fields(3)));
+        var coords = rs1.fields(1);
+        var res = coord.split(",");
+                
+        var res1 = res[0].split( " " );
+        var res2 = res[1].split( " " ); 
+
+        
+        var latitude = res1[0].substring(12,res1[0].length);
+        var longitude = res2[0];
+
+        rs.movenext;
+    }
+
+    rs.close;
+    connection.close;
+
+
+
     var mapOptions = {
         center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
         zoom: 10,

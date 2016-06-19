@@ -9,6 +9,8 @@
 <body>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="scripts/saveImageMaps.js"></script>
+
+   
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td>

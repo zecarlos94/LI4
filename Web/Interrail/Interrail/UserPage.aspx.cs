@@ -78,5 +78,30 @@ namespace Interrail
             string res = "~/Album.aspx?id=" + email;
             Response.Redirect(res);
         }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            email = Request.QueryString["id"];
+            int agendaId = -1;
+            con = new SqlConnection(@"Data Source=TIAGO-PC\TIAGOSERVER;Initial Catalog=Interrail;Integrated Security=True");
+            
+                cmd = new SqlCommand("SELECT * FROM Agenda", con);
+
+                con.Open();
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    
+                    DateTime dataAgenda = reader.GetDateTime(2);
+
+                    if (dataAgenda.Day == System.DateTime.Now.Day && dataAgenda.Month == System.DateTime.Now.Month && dataAgenda.Year == System.DateTime.Now.Year) {
+                        agendaId = (int) reader.GetValue(0);
+                    }
+                }
+
+            string res = "~/RouteMap.aspx?id=" + email + "&agenda="+ agendaId;
+            Response.Redirect(res);
+        }
     }
 }
