@@ -23,8 +23,6 @@ namespace Interrail
     {
 
         static string ApplicationName = "Google Calendar API Quickstart";
-        private TravellingAssistant ta = new TravellingAssistant();
-        DataTable dt;//save all results 
         private string email;
 
         string sql_id_local;
