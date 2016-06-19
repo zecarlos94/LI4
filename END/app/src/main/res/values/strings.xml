@@ -6,5 +6,4 @@
     <string name="app_title">Travelling Assistant</string>
     <string name="login_name">Actualizar Tarefas</string>
     <string name="title_activity_menu">Menu</string>
-    <string name="title_activity_text_input">TextInputActivity</string>
 </resources>
