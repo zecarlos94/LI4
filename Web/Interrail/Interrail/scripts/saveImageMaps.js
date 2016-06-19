@@ -1,9 +1,9 @@
 ﻿var markers = [
            {
-               "title": 'Eiffel Tower',
-               "lat": '48.858207',
-               "lng": '2.294667',
-               "description": 'Paris,France.'
+               "title": 'Amsterdam Museum',
+               "lat": '52.367766',
+               "lng": '4.890316',
+               "description": 'Amsterdam,Netherlands.'
            }
        ,
            {
@@ -13,6 +13,13 @@
                "description": 'Amsterdam,Netherlands.'
            }
       ,
+          {
+           "title": 'Royal Palace',
+           "lat": '52.373098',
+           "lng": '4.891347',
+           "description": 'Amsterdam,Netherlands.'
+       }
+      ,
            {
                "title": 'Anne Fran House',
                "lat": '52.375255',
@@ -20,34 +27,14 @@
                "description": 'Amsterdam,Netherlands.'
            }
       ,
+          
            {
-               "title": 'Siegestor',
-               "lat": '48.152338',
-               "lng": '11.582023',
-               "description": 'Munchen,Germany.'
+               "title": 'Homomonument',
+               "lat": '52.374391',
+               "lng": '4.884763',
+               "description": 'Amsterdam,Netherlands.'
            }
-      ,
-           {
-               "title": 'Colosseo',
-               "lat": '41.890082',
-               "lng": '12.492285',
-               "description": 'Rome,Italy.'
-           }
-      ,
-           {
-               "title": 'The Motherland Calls',
-               "lat": '48.742281',
-               "lng": '44.536901',
-               "description": 'Volgograd,Russia.'
-           }
-      ,
-           {
-               "title": 'Obelisk(Tolyatti)',
-               "lat": '53.521136',
-               "lng": '49.274878',
-               "description": 'Tolyatti,Russia.'
-           }
-];
+     ];
 
 window.onload = function () {
     LoadMap();
