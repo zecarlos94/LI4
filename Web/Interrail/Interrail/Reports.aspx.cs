@@ -49,7 +49,7 @@ namespace Interrail
                 if (LocalCheck.Checked == false) cmd = new SqlCommand("SELECT Id, Titulo, Data, fk_Utilizador FROM Relatorio WHERE Tipo = 0", con);
                 else
                 {
-                    cmd = new SqlCommand("SELECT Relatorio.Id, Relatorio.Titulo, Relatorio.Data, Relatorio.fk_Utilizador FROM Relatorio INNER JOIN Tarefa AS T ON T.fk_Relatorio = Relatorio.Id INNER JOIN Local AS L ON T.fk_Local = L.Id WHERE Relatorio.Tipo = 0 AND L.Descricao LIKE @Local", con);
+                    cmd = new SqlCommand("SELECT DISTINCT Relatorio.Id, Relatorio.Titulo, Relatorio.Data, Relatorio.fk_Utilizador FROM Relatorio INNER JOIN Tarefa AS T ON T.fk_Relatorio = Relatorio.Id INNER JOIN Local AS L ON T.fk_Local = L.Id WHERE Relatorio.Tipo = 0 AND L.Descricao LIKE @Local", con);
                     cmd.Parameters.AddWithValue("@Local", LocalBox.Text);
                 }
 
@@ -82,7 +82,7 @@ namespace Interrail
                 }
                 else
                 {
-                    cmd = new SqlCommand("SELECT Relatorio.Id, Relatorio.Titulo, Relatorio.Data FROM Relatorio INNER JOIN Tarefa AS T ON T.fk_Relatorio = Relatorio.Id INNER JOIN Local AS L ON T.fk_Local = L.Id WHERE Relatorio.fk_Utilizador = @Email AND L.Descricao LIKE @Local", con);
+                    cmd = new SqlCommand("SELECT DISTINCT Relatorio.Id, Relatorio.Titulo, Relatorio.Data FROM Relatorio INNER JOIN Tarefa AS T ON T.fk_Relatorio = Relatorio.Id INNER JOIN Local AS L ON T.fk_Local = L.Id WHERE Relatorio.fk_Utilizador = @Email AND L.Descricao LIKE @Local", con);
                     cmd.Parameters.AddWithValue("@Local", LocalBox.Text);
                     cmd.Parameters.AddWithValue("@Email", email);
                 }
