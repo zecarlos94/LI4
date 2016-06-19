@@ -286,7 +286,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
             if (success) {
                // finish();
-                Intent intent = new Intent(LoginActivity.this,MenuActivity.class);
+                Intent intent = new Intent(LoginActivity.this,UserMenuActivity.class);
                 LoginActivity.this.startActivity(intent);
 
             } else {

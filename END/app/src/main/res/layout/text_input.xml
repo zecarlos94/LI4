@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff000000"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Insira os seus comentários"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#ffffffff"
+        android:background="#ff000000"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <EditText
+        android:layout_width="320dp"
+        android:layout_height="419dp"
+        android:id="@+id/editText"
+        android:padding="32dp"
+        android:editable="true"
+        android:background="#78000000"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finalizar"
+            android:id="@+id/b_done" />
+
+        <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:id="@+id/b_cancel"
+        android:layout_gravity="right" />
+
+    </LinearLayout>
+
+</LinearLayout>

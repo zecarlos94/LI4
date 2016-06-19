@@ -1,36 +1,22 @@
 package com.uminho.li4.travellingassistant;
 
-import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-
-public class MainActivity extends ActionBarActivity {
+/**
+ * Created by Gustavo on 19/06/2016.
+ */
+public class UserMapActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.user_map);
 
-        Button login_button = (Button) findViewById(R.id.login_button);
-
-        // config listener for login activity
-        login_button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                Intent intent = new Intent(MainActivity.this, com.uminho.li4.travellingassistant.LoginActivity.class);
-                MainActivity.this.startActivity(intent);
-
-            }
-        });
-
-
-}
-
+    }
 
 
     @Override
@@ -54,4 +40,6 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
