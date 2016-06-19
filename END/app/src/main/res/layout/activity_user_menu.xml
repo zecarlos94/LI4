@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dc000000">
+
+    <TextView
+        android:layout_width="129dp"
+        android:layout_height="45dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Assistente "
+        android:id="@+id/title"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#ffffffff" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Data :  "
+                android:id="@+id/textData"
+                android:textColor="#ffffffff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/DataValue"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ffffffff" />
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="País :  "
+            android:id="@+id/text_pais"
+            android:textColor="#ffffffff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/PaisValue"
+                android:textColor="#ffffffff" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|center_vertical"
+        android:baselineAligned="false"
+        android:padding="48dp"
+        android:layout_margin="24dp"
+        android:layout_marginTop="0dp"
+        android:paddingTop="0dp">
+    <Button
+        android:layout_width="233dp"
+        android:layout_height="50dp"
+        android:text="Consultar Trajeto"
+        android:id="@+id/button_map"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="233dp"
+        android:layout_height="50dp"
+        android:text="Consultar e Documentar Tarefas"
+        android:id="@+id/button_list"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="233dp"
+        android:layout_height="50dp"
+        android:text="Finalizar as tarefas do dia"
+        android:id="@+id/button_end"
+        android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+</LinearLayout>
