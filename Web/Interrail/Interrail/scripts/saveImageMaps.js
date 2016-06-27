@@ -38,10 +38,10 @@
 
 
 
-var map, mapOptions;
+var map, mapOptions,count;
 function LoadMap(email, agenda) {
 
-   
+    count = 0;
 
     var connection = new ActiveXObject("ADODB.Connection") ;
 
@@ -66,8 +66,8 @@ function LoadMap(email, agenda) {
         rs1.MoveFirst;
 
 
-        var title = rs1.fields(0);
-        var description =  rs1.fields(2).concat(",".concat(rs1.fields(3)));
+        var tit = rs1.fields(0);
+        var desc =  rs1.fields(2).concat(",".concat(rs1.fields(3)));
         var coords = rs1.fields(1);
         var res = coord.split(",");
                 
@@ -77,6 +77,15 @@ function LoadMap(email, agenda) {
         
         var latitude = res1[0].substring(12,res1[0].length);
         var longitude = res2[0];
+
+
+        markers[count].title = tit;
+        markers[count].description = desc;
+        markers[count].lat = latitude;
+        markers[count].lng = longitude;
+
+
+
 
         rs.movenext;
     }
@@ -95,7 +104,7 @@ function LoadMap(email, agenda) {
     var infoWindow = new google.maps.InfoWindow();
     var lat_lng = new Array();
     var latlngbounds = new google.maps.LatLngBounds();
-    for (i = 0; i < markers.length; i++) {
+    for (i = 0; i <count; i++) {
         var data = markers[i]
         var myLatlng = new google.maps.LatLng(data.lat, data.lng);
         lat_lng.push(myLatlng);
