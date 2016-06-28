@@ -27,5 +27,10 @@
     </table>
     <br />
     <input type="button" id="btnExport" value="Export" onclick="SaveImg()" />
+               <div id="Error">&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Calibri" ForeColor="White"></asp:Label>
+                     Label1.Text = Request.QueryString["email"];
+                <br />
+&nbsp;&nbsp;&nbsp; </div>
 </body>
 </html>

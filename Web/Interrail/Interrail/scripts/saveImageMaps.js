@@ -2,7 +2,9 @@
                
 
 window.onload = function () {
-    LoadMap("a70443@alunos.uminho.pt",1);
+   var u= document.getElementById('<%=Label1.ClientID%>').value;
+    LoadMap(u,1);
+    //LoadMap("a70443@alunos.uminho.pt",1);
 }
 var map, mapOptions,count;
 function LoadMap(email, agenda) {

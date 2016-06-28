@@ -186,6 +186,7 @@
     <Content Include="styles\ProfileStyle.css" />
     <Content Include="styles\ReportStyle.css" />
     <Content Include="styles\SigninStyle.css" />
+    <Content Include="styles\RoutesMapStyle.css" />
     <Content Include="styles\UserPageStyle.css" />
     <Content Include="Unfiltered.aspx" />
     <Content Include="UserPage.aspx" />
