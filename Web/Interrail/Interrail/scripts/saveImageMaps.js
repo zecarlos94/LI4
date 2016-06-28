@@ -1,41 +1,5 @@
-﻿var markers = [
-           {
-               "title": 'Amsterdam Museum',
-               "lat": '52.367766',
-               "lng": '4.890316',
-               "description": 'Amsterdam,Netherlands.'
-           }
-       ,
-           {
-               "title": 'National Monument',
-               "lat": '52.372816',
-               "lng": '4.893700',
-               "description": 'Amsterdam,Netherlands.'
-           }
-      ,
-          {
-           "title": 'Royal Palace',
-           "lat": '52.373098',
-           "lng": '4.891347',
-           "description": 'Amsterdam,Netherlands.'
-       }
-      ,
-           {
-               "title": 'Anne Fran House',
-               "lat": '52.375255',
-               "lng": '4.883847',
-               "description": 'Amsterdam,Netherlands.'
-           }
-      ,
-          
-           {
-               "title": 'Homomonument',
-               "lat": '52.374391',
-               "lng": '4.884763',
-               "description": 'Amsterdam,Netherlands.'
-           }
-     ];
-
+﻿var markers = new Array();
+               
 
 window.onload = function () {
     LoadMap("a70443@alunos.uminho.pt",1);
