@@ -37,7 +37,9 @@
      ];
 
 
-
+window.onload = function () {
+    LoadMap("a70443@alunos.uminho.pt",1);
+}
 var map, mapOptions,count;
 function LoadMap(email, agenda) {
 
@@ -79,12 +81,9 @@ function LoadMap(email, agenda) {
         var longitude = res2[0];
 
 
-        markers[count].title = tit;
-        markers[count].description = desc;
-        markers[count].lat = latitude;
-        markers[count].lng = longitude;
+        markers[count] = { title: tit, description: desc, lat: latitude, lng: longitude };
 
-
+        count = count + 1;
 
 
         rs.movenext;

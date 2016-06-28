@@ -20,12 +20,9 @@ namespace Interrail
 {
     public partial class RoutesMap : System.Web.UI.Page
     {
-        public void Page_Load(Object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            string email = Request.QueryString["id"];
-            string agenda = Request.QueryString["agenda"];
-            string script = "LoadMap(" + email + "," + agenda + ")";
-            ClientScript.RegisterClientScriptBlock(this.GetType(), "unique_key",script, true);
+
         }
 
     }
