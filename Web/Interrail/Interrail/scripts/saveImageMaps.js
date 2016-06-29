@@ -2,8 +2,9 @@
                
 
 window.onload = function () {
-   var u= document.getElementById('<%=Label1.ClientID%>').value;
-    LoadMap(u,1);
+    var u= document.getElementById('<%=Label1.ClientID%>').value;
+    var a= document.getElementById('<%=Label2.ClientID%>').value;
+    LoadMap(u,a);
     //LoadMap("a70443@alunos.uminho.pt",1);
 }
 var map, mapOptions,count;

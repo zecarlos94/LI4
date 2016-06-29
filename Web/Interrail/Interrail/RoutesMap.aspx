@@ -30,6 +30,8 @@
                <div id="Error">&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Calibri" ForeColor="White"></asp:Label>
                      Label1.Text = Request.QueryString["email"];
+		<asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Calibri" ForeColor="White"></asp:Label>
+                     Label2.Text = Request.QueryString["agenda"];
                 <br />
 &nbsp;&nbsp;&nbsp; </div>
 </body>
